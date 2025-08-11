@@ -1,6 +1,6 @@
 "use client";
 
-import { useTheme } from "../lib/theme-context";
+import { useTheme, Theme } from "../lib/theme-context";
 import { useEffect, useState } from "react";
 
 const themes = [

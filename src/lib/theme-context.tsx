@@ -8,7 +8,7 @@ import {
   ReactNode,
 } from "react";
 
-type Theme = "light" | "dark" | "system";
+export type Theme = "light" | "dark" | "system";
 
 const ThemeContext = createContext<{
   theme: Theme;
