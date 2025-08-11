@@ -8,6 +8,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return { title: post.title.rendered, description: post.excerpt.rendered };
 }
 
-export default function PostLayout({ children }: { children: React.ReactNode }) {
+export default function PostLayout({ children, params }: { children: React.ReactNode, params: { slug: string } }) {
   return <>{children}</>;
 }
