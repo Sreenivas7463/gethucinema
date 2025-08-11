@@ -25,11 +25,11 @@ export default function PostCard({ post }: { post: any }) {
           className="text-2xl font-bold mb-2 line-clamp-2"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
-        <p
-          className="text-gray-600 mb-4 line-clamp-3"
+                        <p
+          className="mb-4 line-clamp-3 dark:text-gray-300"
           dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
         />
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        <div className="flex items-center justify-between text-sm dark:text-gray-400">
           <time>{formattedDate}</time>
           <span>Read more →</span>
         </div>

@@ -1,16 +1,17 @@
-import './global.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import "./global.css";
+import type { Metadata } from "next";
+import { ThemeProvider } from "../lib/theme-context";
+import { Inter } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Gethu Cinema',
-  description: 'Fresh takes on Tamil cinema and culture',
+  title: "Gethu Cinema",
+  description: "Fresh takes on Tamil cinema and culture",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
 };
 
@@ -21,10 +22,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-blue-50 flex flex-col min-h-screen`}>
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+            <body
+        className={`${inter.className} bg-background text-text flex flex-col min-h-screen`}
+      >
+        <ThemeProvider>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

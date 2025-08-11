@@ -82,10 +82,10 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       <article>
       <header className="mb-8 text-center">
         <h1
-          className="text-4xl font-bold text-gray-900 mb-4"
+          className="text-4xl font-bold mb-4"
           dangerouslySetInnerHTML={{ __html: post.title.rendered }}
         />
-        <div className="flex justify-center gap-4 text-gray-500 text-sm mb-6">
+        <div className="flex justify-center gap-4 text-sm mb-6">
           <time>{formattedDate}</time>
           <span>•</span>
           {categories.length > 0 && (
@@ -108,7 +108,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
 
       <div
         ref={contentRef}
-        className="prose prose-lg max-w-none"
+        className="prose prose-lg max-w-none dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: sanitizedContent }}
       />
     </article>

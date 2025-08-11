@@ -95,7 +95,7 @@ export default function HomePage() {
         ) : posts.length > 0 ? (
           posts.map((post) => <PostCard key={post.id} post={post} />)
         ) : (
-          <p className="col-span-full text-center text-gray-500">No posts found.</p>
+          <p className="col-span-full text-center">No posts found.</p>
         )}
       </div>
       {totalPages > 1 && (
