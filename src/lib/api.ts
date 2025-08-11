@@ -7,6 +7,8 @@ export type Post = {
     date: string;
     featured_media: number;
     media_details?: {
+        width: number;
+        height: number;
         sizes: {
             medium?: { source_url: string };
             full: { source_url: string };
@@ -14,7 +16,14 @@ export type Post = {
     };
     categories: number[];
     _embedded?: {
-        'wp:featuredmedia'?: Array<{ source_url: string; alt_text: string }>;
+        'wp:featuredmedia'?: Array<{
+            source_url: string;
+            alt_text: string;
+            media_details: {
+                width: number;
+                height: number;
+            }
+        }>;
         'wp:term'?: Array<Array<{ id: number; name: string; slug: string }>>;
     };
 };
@@ -42,7 +51,17 @@ export async function fetchPostBySlug(slug: string) {
         { next: { revalidate: 60 } }
     );
     const posts: Post[] = await res.json();
-    return posts[0] || null;
+    const post = posts[0] || null;
+
+    if (post && post.featured_media) {
+        const mediaRes = await fetch(`${API_URL}/media/${post.featured_media}`);
+        const media = await mediaRes.json();
+        if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
+            post._embedded['wp:featuredmedia'][0].media_details = media.media_details;
+        }
+    }
+
+    return post;
 }
 
 export async function fetchCategories() {
