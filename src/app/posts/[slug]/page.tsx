@@ -77,7 +77,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
   const categories = post._embedded?.['wp:term']?.[0] || [];
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <BackButton />
       <article>
       <header className="mb-8 text-center">
