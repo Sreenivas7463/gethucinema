@@ -6,10 +6,10 @@ export default function BackButton() {
   const router = useRouter();
 
   const handleBack = () => {
-    if (document.referrer && new URL(document.referrer).origin === window.location.origin) {
-      router.back();
-    } else {
+    if (document.referrer === '') {
       router.push('/');
+    } else {
+      router.back();
     }
   };
 
