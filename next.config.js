@@ -2,7 +2,20 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['www.gethucinema.com', 'secure.gravatar.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'www.gethucinema.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'secure.gravatar.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'placehold.co',
+            },
+        ],
         unoptimized: true,
     },
 };

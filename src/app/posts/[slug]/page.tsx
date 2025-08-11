@@ -1,19 +1,15 @@
 'use client';
 
 import { fetchPostBySlug, Post } from '../../../lib/api';
-import { notFound, useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { format } from 'date-fns';
 import BackButton from '../../../components/BackButton';
 import { useState, useEffect, useRef } from 'react';
 import DOMPurify from 'dompurify';
 import LightboxWrapper from '../../../components/LightboxWrapper';
 
-
-
-
-
 export default function PostPage({ params }: { params: { slug: string } }) {
-  const { slug } = useParams();
+  const { slug } = params;
   const [post, setPost] = useState<Post | null>(null);
   const [loadingPost, setLoadingPost] = useState(true);
   const [sanitizedContent, setSanitizedContent] = useState('');

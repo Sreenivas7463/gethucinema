@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function PostCard({ post }: { post: any }) {
   const imageUrl =
     post._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
-    '/placeholder.jpg';
+    'https://placehold.co/400x400/EEE/31343C';
 
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
     year: 'numeric',
