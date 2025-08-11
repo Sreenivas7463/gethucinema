@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Gethu Cinema',
   description: 'Fresh takes on Tamil cinema and culture',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
