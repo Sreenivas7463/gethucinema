@@ -7,7 +7,7 @@ export default function SearchBar({ onSearch }: { onSearch: (term: string) => vo
         type="text"
         placeholder="Search articles..."
         onChange={(e) => onSearch(e.target.value)}
-        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm"
+        className="w-full px-5 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent shadow-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
       />
     </div>
   );
